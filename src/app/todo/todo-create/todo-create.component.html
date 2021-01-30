@@ -1,0 +1,25 @@
+<div class="create-todo-page">
+
+    <div *ngIf="todos.length > 0">
+        <h4>Todo List</h4>
+        <div class="card mt-2" *ngFor="let todo of todos; index as i; first as isFirst">
+            <app-todo-detail [todo]="todo"></app-todo-detail>
+        </div>
+    </div>
+
+    <br>
+
+    <h4>New Todo</h4>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="email" class="form-control" id="title" placeholder="Enter todo title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="5" formControlName="description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
